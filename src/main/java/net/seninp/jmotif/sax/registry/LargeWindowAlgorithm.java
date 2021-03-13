@@ -35,4 +35,13 @@ public class LargeWindowAlgorithm implements SlidingWindowMarkerAlgorithm {
 
   }
 
+  @Override
+  public void markVisited(VisitRegistry registry, int startPosition, int intervalLength, int stepWise) {
+    if(stepWise > intervalLength) {
+      markVisited(registry, startPosition, stepWise);
+    } else {
+      markVisited(registry, startPosition, intervalLength);
+    }
+  }
+
 }
